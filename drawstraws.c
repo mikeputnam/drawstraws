@@ -80,6 +80,8 @@ int main(int argc, char *argv[])
  * Lastly the % or modulo symbol takes the random number and our desired count
  * of strings and results in a random selection of an integer in our array.
  *
+ * This random selection is used as the index in the array to return the value
+ * or string at the position.
  */
 
     printf("%s\n", argv[(rand() % (argc-1)) + 1]);
