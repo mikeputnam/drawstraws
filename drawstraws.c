@@ -21,9 +21,6 @@
 
 int main(int argc, char *argv[])
 {
-    srand(time(NULL)); //seed the pseudo-random number generator
-
-    int i = 0; //initialize
 
 /* This relies on the behavior of the main() function and it's "argument count"
  * argc and "argument vector" argv.
@@ -85,8 +82,11 @@ int main(int argc, char *argv[])
  * This random selection is used as the index in the array to return the value
  * or string at the position.
  */
+    struct timeval tv; //declare it
+    gettimeofday(&tv,NULL); //fill it with current time in microseconds
+    srand(tv.tv_usec); //seed the pseudo-random number generator with it
 
     printf("%s\n", argv[(rand() % (argc-1)) + 1]);
 
-    exit(0); //all done
+    return(0); //all done
 }
